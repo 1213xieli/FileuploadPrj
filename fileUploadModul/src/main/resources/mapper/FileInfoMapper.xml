@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xieli.mapper.FileInfoMapper">
+
+<!--    <resultMap id="BaseResultMap" type="com.xieli.entity.FileInfo">-->
+<!--        <id column="id" jdbcType="VARCHAR" property="id"/>-->
+<!--        <result column="fileType" jdbcType="VARCHAR" property="fileType"/>-->
+<!--        <result column="fileUrl" jdbcType="VARCHAR" property="fileUrl"/>-->
+<!--        <result column="fileName" jdbcType="VARCHAR" property="fileName"/>-->
+<!--        <result column="filePath" jdbcType="VARCHAR" property="filePath"/>-->
+<!--        <result column="fileSize" jdbcType="VARCHAR" property="fileSize"/>-->
+<!--        <result column="remark" jdbcType="VARCHAR" property="remark"/>-->
+<!--        <result column="pigFarmId" jdbcType="VARCHAR" property="pigFarmId"/>-->
+<!--        <result column="pigFarmName" jdbcType="VARCHAR" property="pigFarmName"/>-->
+<!--        <result column="isenabled" jdbcType="VARCHAR" property="isenabled"/>-->
+<!--        <result column="userId" jdbcType="VARCHAR" property="userId"/>-->
+<!--        <result column="userName" jdbcType="VARCHAR" property="userName"/>-->
+<!--        <result column="extendOne" jdbcType="VARCHAR" property="extendOne"/>-->
+<!--        <result column="createTime" jdbcType="TIMESTAMP" property="createTime"/>-->
+<!--    </resultMap>-->
+
+    <sql id="SELECT_CONTENT">
+    	<![CDATA[
+		SELECT
+        t.id,
+        t.title,
+        t.dataType,
+        t.fileType,
+        t.fileUrl,
+        t.fileName,
+        t.filePath,
+        t.fileSize,
+        t.remark,
+        t.pigFarmId,
+        t.pigFarmName,
+        t.isenabled,
+        t.userId,
+        t.userName,
+        t.extendOne,
+        t.createTime
+		FROM t_fileInfo t
+        ]]>
+	</sql>
+
+    <insert id="addFileInfo" parameterType="com.xieli.entity.FileInfo">
+        INSERT INTO t_fileInfo
+        (id,title,dataType,fileType, fileUrl, fileName, filePath,fileSize, remark, pigFarmId, pigFarmName, isenabled, userId, userName, extendOne, createTime) VALUES
+            (#{id},#{title,jdbcType=VARCHAR},#{dataType,jdbcType=VARCHAR}, #{fileType}, #{fileUrl}, #{fileName}, #{filePath}, #{fileSize}, #{remark,jdbcType=VARCHAR}, #{pigFarmId,jdbcType=VARCHAR}, #{pigFarmName,jdbcType=VARCHAR}, #{isenabled}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{extendOne,jdbcType=VARCHAR}, #{createTime, jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="selectFileList" parameterType="com.xieli.entity.FileInfo" resultType="com.xieli.entity.FileInfo" >
+        <include refid="SELECT_CONTENT" />
+    </select>
+
+</mapper>

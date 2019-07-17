@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>视频信息</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>上传成功！</div>
+<div>
+    <p>id: <span th:text="${info.id}"></span></p>
+    <p>dataType: <span th:text="${info.dataType}"></span></p>
+    <p>fileUrl: <a th:href="@{${info.fileUrl}}"> </a><span th:text="${info.fileUrl}"></span></p>
+</div>
+
+</body>
+</html>

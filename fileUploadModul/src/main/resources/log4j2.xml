@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--每30秒后重新加载配置文件,因为可能配置文件改了,所以会动态加载,不错-->
+<Configuration status="WARN" monitorInterval="30">
+        <!--相当于变量-->
+        <Properties>
+            <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</Property>
+            <property name="Log_Home">/logs</property>
+        </Properties>
+
+
+        <Appenders>
+            <!--控制台输入日志-->
+            <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+                <PatternLayout pattern="${LOG_PATTERN}"/>
+            </Console>
+
+            <!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+            <RollingFile name="RollingFileInfo" fileName="${Log_Home}/info.${date:yyyy-MM-dd}.log" immediateFlush="true"
+                         filePattern="${Log_Home}/$${date:yyyy-MM}/info-%d{MM-dd-yyyy}-%i.log.gz">
+                <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+                <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+                <filters>
+                    <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                    <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+                </filters>
+                <Policies>
+                    <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                    <SizeBasedTriggeringPolicy size="10MB"/>
+                </Policies>
+            </RollingFile>
+
+            <!--   这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+            <RollingFile name="RollingFileDebug" fileName="${Log_Home}/debug.${date:yyyy-MM-dd}.log" immediateFlush="true"
+                         filePattern="${Log_Home}/$${date:yyyy-MM}/debug-%d{MM-dd-yyyy}-%i.log.gz">
+                <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+                <filters>
+                    <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+                    <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+                </filters>
+                <Policies>
+                    <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                    <SizeBasedTriggeringPolicy size="10MB"/>
+                </Policies>
+            </RollingFile>
+
+            <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+            <RollingFile name="RollingFileError" fileName="${Log_Home}/error.${date:yyyy-MM-dd}.log" immediateFlush="true"
+                         filePattern="${Log_Home}/$${date:yyyy-MM}/error-%d{MM-dd-yyyy}-%i.log.gz">
+                <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36}.%M @%L :-> %msg%xEx%n"/>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+                <Policies>
+                    <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+                    <SizeBasedTriggeringPolicy size="10MB"/>
+                </Policies>
+            </RollingFile>
+
+        </Appenders>
+
+        <Loggers>
+            <!--其他所有日志的级别是debug-->
+            <Root level="info">
+                <AppenderRef ref="ConsoleAppender" />
+                <appender-ref ref="RollingFileInfo"/>
+                <appender-ref ref="RollingFileDebug"/>
+                <appender-ref ref="RollingFileError"/>
+            </Root>
+        </Loggers>
+
+</Configuration>
