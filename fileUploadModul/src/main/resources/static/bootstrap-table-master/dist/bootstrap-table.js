@@ -2277,7 +2277,7 @@
 	};
 
 	// @@search logic
-	fixRegexpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
+	fixRegexpWellKnownSymbolLogic('searchClient.html', 1, function (SEARCH, nativeSearch, maybeCallNative) {
 	  return [
 	    // `String.prototype.search` method
 	    // https://tc39.github.io/ecma262/#sec-string.prototype.search
@@ -4366,9 +4366,9 @@
 	        });
 	      }
 
-	      if (o.search) {
+	      if (o.searchClient) {
 	        html = [];
-	        var showSearchButton = Utils.sprintf(this.constants.html.searchButton, o.formatSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.search) : '', o.showButtonText ? o.formatSearch() : '');
+	        var showSearchButton = Utils.sprintf(this.constants.html.searchButton, o.formatSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.searchClient) : '', o.showButtonText ? o.formatSearch() : '');
 	        var showSearchClearButton = Utils.sprintf(this.constants.html.searchClearButton, o.formatClearSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.clearSearch) : '', o.showButtonText ? o.formatClearSearch() : '');
 	        var searchInputHtml = "<input class=\"".concat(this.constants.classes.input).concat(Utils.sprintf(' input-%s', o.iconSize), " search-input\" type=\"text\" placeholder=\"").concat(o.formatSearch(), "\">");
 	        var searchInputFinalHtml = searchInputHtml;
@@ -4377,7 +4377,7 @@
 	          searchInputFinalHtml = Utils.sprintf(this.constants.html.inputGroup, searchInputHtml, (o.showSearchButton ? showSearchButton : '') + (o.showSearchClearButton ? showSearchClearButton : ''));
 	        }
 
-	        html.push(Utils.sprintf("\n        <div class=\"".concat(this.constants.classes.pull, "-").concat(o.searchAlign, " search ").concat(this.constants.classes.inputGroup, "\">\n          %s\n        </div>\n      "), searchInputFinalHtml));
+	        html.push(Utils.sprintf("\n        <div class=\"".concat(this.constants.classes.pull, "-").concat(o.searchAlign, " searchClient.html ").concat(this.constants.classes.inputGroup, "\">\n          %s\n        </div>\n      "), searchInputFinalHtml));
 	        this.$toolbar.append(html.join(''));
 	        var $searchInput = this.$toolbar.find('.search input');
 	        $search = o.showSearchButton ? this.$toolbar.find('.search button[name=search]') : $searchInput;
@@ -4451,7 +4451,7 @@
 	        this.updatePagination();
 	      }
 
-	      this.trigger('search', this.searchText);
+	      this.trigger('searchClient.html', this.searchText);
 	    }
 	  }, {
 	    key: "initSearch",
@@ -5407,7 +5407,7 @@
 	  }, {
 	    key: "initSearchText",
 	    value: function initSearchText() {
-	      if (this.options.search) {
+	      if (this.options.searchClient) {
 	        this.searchText = '';
 
 	        if (this.options.searchText !== '') {

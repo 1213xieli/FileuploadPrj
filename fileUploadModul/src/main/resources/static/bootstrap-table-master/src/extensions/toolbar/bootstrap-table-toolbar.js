@@ -75,13 +75,13 @@ $.BootstrapTable = class extends $.BootstrapTable {
     const o = this.options
 
     this.showToolbar = this.showToolbar ||
-      (o.search &&
+      (o.searchClient &&
       o.advancedSearch &&
       o.idTable)
 
     super.initToolbar()
 
-    if (!o.search || !o.advancedSearch || !o.idTable) {
+    if (!o.searchClient || !o.advancedSearch || !o.idTable) {
       return
     }
 

@@ -14,5 +14,7 @@ public interface FileInfoMapper {
 
     List<FileInfo> selectFileList();
 
+    List<FileInfo> getListPage(FileInfo info);
 
+    int getTotal(FileInfo info);
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class FileInfo {
+public class FileInfo extends Page{
 
     private String id;
     private String title; // 标题
@@ -24,5 +24,6 @@ public class FileInfo {
     private String userId;// 上传人id
     private String userName; // 上传用户名
     private String extendOne;// 扩展字段
+    private String fuzzyKey; // 模糊查询
 
 }

@@ -993,7 +993,7 @@
 	};
 
 	// @@search logic
-	fixRegexpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
+	fixRegexpWellKnownSymbolLogic('searchClient.html', 1, function (SEARCH, nativeSearch, maybeCallNative) {
 	  return [
 	    // `String.prototype.search` method
 	    // https://tc39.github.io/ecma262/#sec-string.prototype.search
@@ -1176,7 +1176,7 @@
 	        switch (e.keyCode) {
 	          case 83:
 	            // s
-	            if (!_this.options.search) {
+	            if (!_this.options.searchClient) {
 	              return;
 	            }
 

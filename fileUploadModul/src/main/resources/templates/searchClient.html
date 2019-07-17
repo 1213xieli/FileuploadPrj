@@ -3,6 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head th:replace="fragments/header :: header"></head>
+<title>client</title>
 <meta charset="UTF-8">
 <body>
 
@@ -40,12 +41,10 @@
             pageSize : 2,// 单页记录数
             pageList : [ 5, 10, 20, 30 ],// 可选择单页记录数
             queryParams : function(params) {// 上传服务器的参数
-                debugger
                 var temp = {// 如果是在服务器端实现分页，limit、offset这两个参数是必须的
                     limit : params.limit, // 每页显示数量
                     offset : params.offset, // SQL语句起始索引
                     // page: (params.offset / params.limit) + 1, //当前页码
-
                 };
                 return temp;
             },

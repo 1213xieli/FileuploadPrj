@@ -52,4 +52,28 @@
         <include refid="SELECT_CONTENT" />
     </select>
 
+    <select id="getTotal" parameterType="com.xieli.entity.FileInfo" resultType="int">
+        SELECT count(1) FROM t_fileInfo t WHERE 1 = 1
+        <if test="fuzzyKey!=null and fuzzyKey !=''">
+            AND (t.title LIKE CONCAT('%',#{fuzzyKey},'%')
+            or t.dataType LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%')
+            or t.fileType LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%')
+            or t.fileName LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%'))
+        </if>
+    </select>
+
+    <select id="getListPage" parameterType="com.xieli.entity.FileInfo" resultType="com.xieli.entity.FileInfo">
+        SELECT * FROM t_fileInfo t WHERE 1 = 1
+        <if test="fuzzyKey!=null and fuzzyKey !=''">
+            AND (t.title LIKE CONCAT('%',#{fuzzyKey},'%')
+            or t.dataType LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%')
+            or t.fileType LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%')
+            or t.fileName LIKE CONCAT(CONCAT('%',#{fuzzyKey}),'%'))
+        </if>
+        LIMIT #{offset},#{limit}
+    </select>
+
+
+
+
 </mapper>

@@ -1176,7 +1176,7 @@
 	};
 
 	// @@search logic
-	fixRegexpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
+	fixRegexpWellKnownSymbolLogic('searchClient.html', 1, function (SEARCH, nativeSearch, maybeCallNative) {
 	  return [
 	    // `String.prototype.search` method
 	    // https://tc39.github.io/ecma262/#sec-string.prototype.search
@@ -1847,7 +1847,7 @@
 	    value: function onSearch(event) {
 	      _get(_getPrototypeOf(_class.prototype), "onSearch", this).call(this, event);
 
-	      if (this.options.search) {
+	      if (this.options.searchClient) {
 	        UtilsCookie.setCookie(this, UtilsCookie.cookieIds.searchText, this.searchText);
 	      }
 

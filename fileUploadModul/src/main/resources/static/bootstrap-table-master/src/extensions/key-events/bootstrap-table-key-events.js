@@ -31,7 +31,7 @@ $.BootstrapTable = class extends $.BootstrapTable {
 
       switch (e.keyCode) {
         case 83: // s
-          if (!this.options.search) {
+          if (!this.options.searchClient) {
             return
           }
           $search.focus()

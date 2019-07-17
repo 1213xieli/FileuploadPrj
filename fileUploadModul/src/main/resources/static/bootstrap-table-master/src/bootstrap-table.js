@@ -627,9 +627,9 @@ class BootstrapTable {
       })
     }
 
-    if (o.search) {
+    if (o.searchClient) {
       html = []
-      const showSearchButton = Utils.sprintf(this.constants.html.searchButton, o.formatSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.search) : '', o.showButtonText ? o.formatSearch() : '')
+      const showSearchButton = Utils.sprintf(this.constants.html.searchButton, o.formatSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.searchClient) : '', o.showButtonText ? o.formatSearch() : '')
       const showSearchClearButton = Utils.sprintf(this.constants.html.searchClearButton, o.formatClearSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.clearSearch) : '', o.showButtonText ? o.formatClearSearch() : '')
 
       const searchInputHtml = `<input class="${this.constants.classes.input}${Utils.sprintf(' input-%s', o.iconSize)} search-input" type="text" placeholder="${o.formatSearch()}">`
@@ -707,7 +707,7 @@ class BootstrapTable {
     } else {
       this.updatePagination()
     }
-    this.trigger('search', this.searchText)
+    this.trigger('searchClient.html', this.searchText)
   }
 
   initSearch () {
@@ -1633,7 +1633,7 @@ class BootstrapTable {
   }
 
   initSearchText () {
-    if (this.options.search) {
+    if (this.options.searchClient) {
       this.searchText = ''
       if (this.options.searchText !== '') {
         const $search = this.$toolbar.find('.search input')

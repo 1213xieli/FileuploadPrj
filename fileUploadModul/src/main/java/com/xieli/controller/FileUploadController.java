@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.xieli.entity.FileInfo;
 import com.xieli.service.FileService;
 import com.xieli.utils.Func;
+import com.xieli.utils.PageHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,5 +71,39 @@ public class FileUploadController {
         }
         return null;
     }
+
+
+    /* *
+     * @description 真分页
+     * @author xieli
+     * @date  1:46 2019/7/18
+     * @param [user, request]
+     * @return com.xieli.utils.PageHelper<com.xieli.entity.FileInfo>
+     **/
+    @RequestMapping("/getListPage")
+
+    @ResponseBody
+    public PageHelper<FileInfo> getUserListPage(FileInfo info, HttpServletRequest request) {
+        try {
+//            request.getParameter("fuzzyKey");
+
+            PageHelper<FileInfo> pageHelper = new PageHelper<FileInfo>();
+            // 统计总记录数
+            int total = fileService.getTotal(info);
+            pageHelper.setTotal(total);
+
+            // 查询当前页实体对象
+            List<FileInfo> list = fileService.getListPage(info);
+            pageHelper.setRows(list);
+
+            return pageHelper;
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return new PageHelper<>();
+    }
+
+
 
 }

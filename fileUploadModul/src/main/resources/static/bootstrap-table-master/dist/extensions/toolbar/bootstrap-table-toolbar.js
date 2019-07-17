@@ -1802,7 +1802,7 @@
 	};
 
 	// @@search logic
-	fixRegexpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
+	fixRegexpWellKnownSymbolLogic('searchClient.html', 1, function (SEARCH, nativeSearch, maybeCallNative) {
 	  return [
 	    // `String.prototype.search` method
 	    // https://tc39.github.io/ecma262/#sec-string.prototype.search
@@ -2148,11 +2148,11 @@
 	      var _this = this;
 
 	      var o = this.options;
-	      this.showToolbar = this.showToolbar || o.search && o.advancedSearch && o.idTable;
+	      this.showToolbar = this.showToolbar || o.searchClient && o.advancedSearch && o.idTable;
 
 	      _get(_getPrototypeOf(_class.prototype), "initToolbar", this).call(this);
 
-	      if (!o.search || !o.advancedSearch || !o.idTable) {
+	      if (!o.searchClient || !o.advancedSearch || !o.idTable) {
 	        return;
 	      }
 

@@ -1183,7 +1183,7 @@
 	};
 
 	// @@search logic
-	fixRegexpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
+	fixRegexpWellKnownSymbolLogic('searchClient.html', 1, function (SEARCH, nativeSearch, maybeCallNative) {
 	  return [
 	    // `String.prototype.search` method
 	    // https://tc39.github.io/ecma262/#sec-string.prototype.search
@@ -1452,7 +1452,7 @@
 	        this.options.pageSize = +_GET("".concat(_prefix, "size")) || $.BootstrapTable.DEFAULTS.pageSize;
 	        this.options.sortOrder = _GET("".concat(_prefix, "order")) || $.BootstrapTable.DEFAULTS.sortOrder;
 	        this.options.sortName = _GET("".concat(_prefix, "sort")) || $.BootstrapTable.DEFAULTS.sortName;
-	        this.options.searchText = _GET("".concat(_prefix, "search")) || $.BootstrapTable.DEFAULTS.searchText;
+	        this.options.searchText = _GET("".concat(_prefix, "searchClient.html")) || $.BootstrapTable.DEFAULTS.searchText;
 	        var _onLoadSuccess = this.options.onLoadSuccess;
 
 	        this.options.onLoadSuccess = function (data) {
@@ -1460,7 +1460,7 @@
 	            _this.addrbarInit = false;
 	          } else {
 	            var params = {};
-	            params["".concat(_prefix, "page")] = _this.options.pageNumber, params["".concat(_prefix, "size")] = _this.options.pageSize, params["".concat(_prefix, "order")] = _this.options.sortOrder, params["".concat(_prefix, "sort")] = _this.options.sortName, params["".concat(_prefix, "search")] = _this.options.searchText; // h5提供的修改浏览器地址栏的方法
+	            params["".concat(_prefix, "page")] = _this.options.pageNumber, params["".concat(_prefix, "size")] = _this.options.pageSize, params["".concat(_prefix, "order")] = _this.options.sortOrder, params["".concat(_prefix, "sort")] = _this.options.sortName, params["".concat(_prefix, "searchClient.html")] = _this.options.searchText; // h5提供的修改浏览器地址栏的方法
 
 	            window.history.pushState({}, '', _buildUrl(params));
 	          }

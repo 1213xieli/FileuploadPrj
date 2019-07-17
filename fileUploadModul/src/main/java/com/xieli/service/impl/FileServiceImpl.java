@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -75,5 +76,15 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<FileInfo> selectPage() throws Exception {
         return fileInfoMapper.selectFileList();
+    }
+
+    @Override
+    public List<FileInfo> getListPage(FileInfo info) throws Exception {
+        return fileInfoMapper.getListPage(info);
+    }
+
+    @Override
+    public int getTotal(FileInfo info) throws Exception {
+        return fileInfoMapper.getTotal(info);
     }
 }
