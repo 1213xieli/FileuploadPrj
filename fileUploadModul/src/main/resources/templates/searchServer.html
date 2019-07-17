@@ -85,8 +85,8 @@
 
         // 定义删除、更新操作
         function option(value, row, index) {
-            var htm = '<button id="delUser" userId='+ value+ ' onclick="delUser(this)">删除</button>' +
-                '<button id="dupUser" onclick="updUser('+ value + ')">修改</button>'
+            var htm = '<button id="delInfo" userId='+ value+ ' onclick="delUser(this)">删除</button>' +
+                '<button id="dupUser" onclick="updInfo('+ value + ')">修改</button>'
             return htm;
         }
 
@@ -97,26 +97,26 @@
             });
         })
 
-        // // 添加用户
-        // $("#userAdd").on("click", function() {
-        //     layer.open({
-        //         type : 2,
-        //         title : '添加用户',
-        //         area : [ '500px', '440px' ],
-        //         fix : false, // �
-        //         content : path + '/user/pageAdd',
-        //         end : function() {
-        //             $("#mytab").bootstrapTable('refresh', {
-        //                 url : path + "/selectPage"
-        //             });
-        //         }
-        //     });
-        // });
+        // 添加用户
+        $("#addInfo").on("click", function() {
+            // layer.open({
+            //     type : 2,
+            //     title : '添加',
+            //     area : [ '500px', '440px' ],
+            //     fix : false,
+            //     content : path + '/addInfo',
+            //     end : function() {
+            //         $("#mytab").bootstrapTable('refresh', {
+            //             url : path + "/getListPage"
+            //         });
+            //     }
+            // });
+        });
 
     })
 
     // 删除用户
-    function delUser(dom) {
+    function delInfo(dom) {
         debugger
         var mymessage = confirm("确认删除嘛？");
         if (mymessage == true) {
@@ -134,7 +134,7 @@
     }
 
     // 编辑用户
-    function updUser(id) {
+    function updInfo(id) {
         // layer.open({
         //     type : 2,
         //     title : '编辑用户',
