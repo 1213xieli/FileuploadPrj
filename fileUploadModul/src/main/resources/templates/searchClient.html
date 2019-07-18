@@ -36,9 +36,10 @@
             striped : true, // 是否显示行间隔色
             pageNumber : 1, // 初始化加载第一页
             pagination : true,// 是否分页
-            search: true,//
+            search : true,
+            strictSearch: true,
             sidePagination : 'client',// server:服务器端分页|client：前端分页
-            pageSize : 2,// 单页记录数
+            pageSize : 5,// 单页记录数
             pageList : [ 5, 10, 20, 30 ],// 可选择单页记录数
             queryParams : function(params) {// 上传服务器的参数
                 var temp = {// 如果是在服务器端实现分页，limit、offset这两个参数是必须的
@@ -78,7 +79,6 @@
 
         // 查询按钮事件
         $('#search_btn').click(function() {
-            debugger
             $('#mytab').bootstrapTable('refresh', {
                 url : path + '/selectPage'
             });

@@ -2,6 +2,7 @@ package com.xieli.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageInfo;
 import com.xieli.entity.FileInfo;
 import com.xieli.service.FileService;
 import com.xieli.utils.Func;
@@ -12,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -81,8 +79,6 @@ public class FileUploadController {
      * @return com.xieli.utils.PageHelper<com.xieli.entity.FileInfo>
      **/
     @RequestMapping("/getListPage")
-
-    @ResponseBody
     public PageHelper<FileInfo> getUserListPage(FileInfo info, HttpServletRequest request) {
         try {
 //            request.getParameter("fuzzyKey");
@@ -102,6 +98,50 @@ public class FileUploadController {
             e.printStackTrace();
         }
         return new PageHelper<>();
+    }
+
+    /* *
+     * @description 真分页
+     * @author xieli
+     * @date  1:46 2019/7/18
+     * @param [user, request]
+     * @return com.xieli.utils.PageHelper<com.xieli.entity.FileInfo>
+     **/
+    @RequestMapping("/getListPagePlugin")
+    public PageHelper<FileInfo> getListPagePlugin(FileInfo info, HttpServletRequest request) {
+        try {
+            PageHelper<FileInfo> pageHelper = new PageHelper<FileInfo>();
+            // 统计总记录数
+            int total = fileService.getTotal(info);
+            pageHelper.setTotal(total);
+
+            com.github.pagehelper.PageHelper.startPage(info.getPage(), info.getLimit());
+            // 查询当前页实体对象
+            List<FileInfo> list= fileService.selectPage();
+//            PageInfo pageInfo =  new PageInfo(list);
+            pageHelper.setRows(list);
+
+            return pageHelper;
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return new PageHelper<>();
+    }
+
+    @RequestMapping("/deleteInfoById/{objid}")
+    public void deleteInfoById(@PathVariable String objid, Model model)
+    {
+        try {
+            if (Func.checkNullOrEmpty(objid))
+                return;
+            fileService.deleteInfoById(objid);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ;
+
     }
 
 

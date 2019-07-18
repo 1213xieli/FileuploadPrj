@@ -23,6 +23,7 @@
                             </div>
                             <div class="top-big-link">
                                 <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-register">请点击此处上传</a>
+                                <a class="btn btn-link-1 launch-modal" onclick="toFileList()"  data-modal-id="modal-registerList">查看列表</a>
                             </div>
                         </div>
             </div>
@@ -84,6 +85,7 @@
 
 
 <script type="text/javascript">
+    var path = getContextPath();
     $(function () {
         $('#defaultForm')
             .bootstrapValidator({
@@ -153,6 +155,22 @@
                 }
             });
     });
+
+    function toFileList()
+    {
+        window.location.href= path + '/searchServer';
+    }
+
+    // 获取项目路径
+    function getContextPath() {
+        var currentPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = currentPath.indexOf(pathName);
+        var localhostPath = currentPath.substring(0, pos);
+        var projectName = pathName
+            .substring(0, pathName.substr(1).indexOf('/') + 1);
+        return (localhostPath + projectName);
+    }
 </script>
 </body>
 </html>

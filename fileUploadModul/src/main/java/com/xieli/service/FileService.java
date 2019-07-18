@@ -41,4 +41,6 @@ public interface FileService {
      * @return int
      **/
     int getTotal(FileInfo info)throws Exception;
+
+    void deleteInfoById(String id)throws Exception;
 }

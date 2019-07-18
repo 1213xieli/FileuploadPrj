@@ -17,4 +17,6 @@ public interface FileInfoMapper {
     List<FileInfo> getListPage(FileInfo info);
 
     int getTotal(FileInfo info);
+
+    void deleteByPrimaryKey(String id);
 }

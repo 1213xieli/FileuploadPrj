@@ -37,6 +37,7 @@ public class WebAppConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController( "/file" ).setViewName( "file" );
+        registry.addViewController( "/filelist" ).setViewName( "filelist" );
         registry.addViewController( "/index" ).setViewName( "index" );
         registry.addViewController( "/" ).setViewName( "index" );
         registry.addViewController( "/info" ).setViewName( "info" );

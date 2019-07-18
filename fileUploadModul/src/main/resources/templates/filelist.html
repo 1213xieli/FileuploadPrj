@@ -6,6 +6,25 @@
 </head>
 <body>
 视频列表
+
+<link href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.js"></script>
+
+<table
+        id="table"
+        data-toggle="table"
+        data-search="true"
+        data-url="">
+    <thead>
+    <tr>
+        <th data-field="id">ID</th>
+        <th data-field="name">Item Name</th>
+        <th data-field="price">Item Price</th>
+    </tr>
+    </thead>
+</table>
+
 <div>
     <ul>
         <li th:each="info:${fileInfos}">

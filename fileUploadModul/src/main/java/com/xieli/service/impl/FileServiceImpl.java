@@ -87,4 +87,9 @@ public class FileServiceImpl implements FileService {
     public int getTotal(FileInfo info) throws Exception {
         return fileInfoMapper.getTotal(info);
     }
+
+    @Override
+    public void deleteInfoById(String id) throws Exception {
+        fileInfoMapper.deleteByPrimaryKey(id);
+    }
 }
