@@ -1,0 +1,20 @@
+DROP TABLE t_fileinfo;
+CREATE TABLE `t_fileinfo` (
+	`id` VARCHAR ( 80 ) NOT NULL,
+	`title` VARCHAR ( 200 ) DEFAULT NULL,
+	`dataType` VARCHAR ( 200 ) DEFAULT NULL,
+	`fileType` VARCHAR ( 200 ) DEFAULT NULL,
+	`fileUrl` VARCHAR ( 200 ) DEFAULT NULL,
+	`fileName` VARCHAR ( 200 ) DEFAULT NULL,
+	`filePath` VARCHAR ( 200 ) DEFAULT NULL,
+	`fileSize` VARCHAR ( 200 ) DEFAULT NULL,
+	`remark` VARCHAR ( 800 ) DEFAULT NULL,
+	`pigFarmId` VARCHAR ( 200 ) DEFAULT NULL,
+	`pigFarmName` VARCHAR ( 200 ) DEFAULT NULL,
+	`createtime` date DEFAULT NULL,
+	`isenabled` VARCHAR ( 200 ) DEFAULT NULL,
+	`userId` VARCHAR ( 200 ) DEFAULT NULL,
+	`userName` VARCHAR ( 200 ) DEFAULT NULL,
+	`extendOne` VARCHAR ( 200 ) DEFAULT NULL,
+PRIMARY KEY ( `id` ) 
+) ENGINE = INNODB DEFAULT CHARSET = utf8;
