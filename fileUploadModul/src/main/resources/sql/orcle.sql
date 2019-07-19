@@ -4,52 +4,52 @@ drop table T_FILEINFO;
 create table T_FILEINFO
 (
   id          VARCHAR2(80) not null,
-  title       VARCHAR2(200), --±êÌâ
-  dataType    VARCHAR2(200), --Êı¾İÀàĞÍ
-  fileType       VARCHAR2(200), --ÎÄ¼şÀàĞÍ
-  fileUrl        VARCHAR2(200), --ÎÄ¼şURL
-  fileName      VARCHAR2(200),--ÎÄ¼şÃû³Æ
-  filePath        VARCHAR2(200),--ÎÄ¼şÂ·¾¶
-  fileSize        VARCHAR2(200),--ÎÄ¼ş´óĞ¡
-  remark        VARCHAR2(800),--±¸×¢
-  pigFarmId        VARCHAR2(200),--Öí³¡id
-  pigFarmName        VARCHAR2(200),--Öí³¡Ãû³Æ
-  createtime  DATE,--´´½¨Ê±¼ä
-  isenabled VARCHAR2(200),-- ÊÇ·ñ¿ÉÓÃ
-  userId  VARCHAR2(200),--ÉÏ´«ÈËid
-  userName   VARCHAR2(200),--ÉÏ´«ÓÃ»§Ãû
-  extendOne  VARCHAR2(200)--À©Õ¹×Ö¶Î
+  title       VARCHAR2(200), --æ ‡é¢˜
+  dataType    VARCHAR2(200), --æ•°æ®ç±»å‹
+  fileType       VARCHAR2(200), --æ–‡ä»¶ç±»å‹
+  fileUrl        VARCHAR2(200), --æ–‡ä»¶URL
+  fileName      VARCHAR2(200),--æ–‡ä»¶åç§°
+  filePath        VARCHAR2(200),--æ–‡ä»¶è·¯å¾„
+  fileSize        VARCHAR2(200),--æ–‡ä»¶å¤§å°
+  remark        VARCHAR2(800),--å¤‡æ³¨
+  pigFarmId        VARCHAR2(200),--çŒªåœºid
+  pigFarmName        VARCHAR2(200),--çŒªåœºåç§°
+  createtime  DATE,--åˆ›å»ºæ—¶é—´
+  isenabled VARCHAR2(200),-- æ˜¯å¦å¯ç”¨
+  userId  VARCHAR2(200),--ä¸Šä¼ äººid
+  userName   VARCHAR2(200),--ä¸Šä¼ ç”¨æˆ·å
+  extendOne  VARCHAR2(200)--æ‰©å±•å­—æ®µ
 );
 
--- Add comments to the table 
+-- Add comments to the table
 comment on table T_FILEINFO
-  is '¸½¼şĞÅÏ¢±í';
--- Add comments to the columns 
+  is 'é™„ä»¶ä¿¡æ¯è¡¨';
+-- Add comments to the columns
 comment on column T_FILEINFO.id
-  is 'Ö÷¼üid';
+  is 'ä¸»é”®id';
 comment on column T_FILEINFO.dataType
-  is 'Êı¾İÀàĞÍ';
+  is 'æ•°æ®ç±»å‹';
 comment on column T_FILEINFO.fileType
-  is 'ÎÄ¼şÀàĞÍ';
+  is 'æ–‡ä»¶ç±»å‹';
 comment on column T_FILEINFO.fileName
-  is 'ÎÄ¼şÃû³Æ';
+  is 'æ–‡ä»¶åç§°';
 comment on column T_FILEINFO.filePath
-  is 'ÎÄ¼şÂ·¾¶';
+  is 'æ–‡ä»¶è·¯å¾„';
 comment on column T_FILEINFO.fileSize
-  is 'ÎÄ¼ş´óĞ¡';
+  is 'æ–‡ä»¶å¤§å°';
 comment on column T_FILEINFO.remark
-  is '±¸×¢';
+  is 'å¤‡æ³¨';
 comment on column T_FILEINFO.pigFarmId
-  is 'Öí³¡id';
+  is 'çŒªåœºid';
 comment on column T_FILEINFO.pigFarmName
-  is 'Öí³¡Ãû³Æ';
+  is 'çŒªåœºåç§°';
 comment on column T_FILEINFO.createtime
-  is '´´½¨Ê±¼ä';
+  is 'åˆ›å»ºæ—¶é—´';
 comment on column T_FILEINFO.isenabled
-  is 'ÊÇ·ñ¿ÉÓÃ';
+  is 'æ˜¯å¦å¯ç”¨';
 comment on column T_FILEINFO.userId
-  is 'ÉÏ´«ÈËid';
+  is 'ä¸Šä¼ äººid';
 comment on column T_FILEINFO.userName
-  is 'ÉÏ´«ÓÃ»§Ãû';
+  is 'ä¸Šä¼ ç”¨æˆ·å';
 comment on column T_FILEINFO.extendOne
-  is 'À©Õ¹×Ö¶Î';
+  is 'æ‰©å±•å­—æ®µ';
