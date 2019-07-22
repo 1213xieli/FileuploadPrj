@@ -42,7 +42,8 @@ public class FileServiceImpl implements FileService {
             fileName = file.getOriginalFilename().substring(0, file.getOriginalFilename().lastIndexOf("."));
         }
 
-        String fileNameTime = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "_" + file.getOriginalFilename();
+        String fileNameTime = Func.newGuid();
+        //new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + "_" + file.getOriginalFilename();
 
         //加个时间戳，尽量避免文件名称重复
         String filePath = "E:/fileUpload/" +fileNameTime;
